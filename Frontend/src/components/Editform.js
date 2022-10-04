@@ -83,7 +83,7 @@ const Editform = () => {
 
   return (
     <div className="container">
-      <NavLink to="/"> Home </NavLink>
+      {/* <NavLink to="/"> Back </NavLink> */}
       <div className="row">
         <div className="col-2"></div>
         <div className="col-8">
@@ -127,11 +127,17 @@ const Editform = () => {
                 class="form-control"
                 id="exampleInputPassword1"
               />
-            </div>
-
-            <button type="submit" onClick={updateuser} class="btn btn-primary">
+<div className="d-flex justify-content-between mt-3 ">
+<button type="submit" onClick={updateuser} class="btn btn-success">
               Update
             </button>
+            <NavLink to="/" className="btn btn-primary ">
+            Back
+          </NavLink>
+</div>
+
+            </div>
+            
           </form>
         </div>
         <div className="col-2"></div>

@@ -100,7 +100,7 @@ const Home = () => {
       <div className="container">
         <div className="add_btn mt-2 mb-2">
           <NavLink to="/register" className="btn btn-primary">
-            Add Data
+            Add Employee Data
           </NavLink>
         </div>
 
@@ -123,12 +123,12 @@ const Home = () => {
                     <td>{element.name}</td>
                     <td>{element.age}</td>
                     <td>{element.profession}</td>
-                    <td className="d-flex justify-content-between ">
+                    <td className="d-flex p-1  justify-content-between ">
                       <NavLink to={`view/${element._id}`}><button className="btn btn-success">
-                          <RemoveRedEyeIcon /></button></NavLink>
+                          <RemoveRedEyeIcon /> View</button></NavLink>
                       <NavLink to={`edit/${element._id}`} ><button className="btn btn-primary">
-                          <CreateIcon /></button></NavLink>
-                       <button className="btn btn-danger" onClick={()=>deleteuser(element._id)} ><DeleteOutlineIcon /></button>
+                          <CreateIcon /> Edit</button></NavLink>
+                       <button className="btn btn-danger" onClick={()=>deleteuser(element._id)} ><DeleteOutlineIcon /> Delete</button>
                     </td>
                   </tr>
                 </>
