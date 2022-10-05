@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import CreateIcon from "@mui/icons-material/Create";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import AddIcon from '@mui/icons-material/Add';
 import { NavLink } from "react-router-dom";
 import { adddata, updatedata, deldata } from "./context/ContextProvider";
 // import { updatedata } from "./context/ContextProvider"
@@ -100,18 +101,19 @@ const Home = () => {
       <div className="container">
         <div className="add_btn mt-2 mb-2">
           <NavLink to="/register" className="btn btn-primary">
+          <AddIcon/>
             Add Employee Data
           </NavLink>
         </div>
 
-        <table className="table">
+        <table className="table mytable shadow p-3 mb-5 bg-white rounded">
           <thead>
             <tr className="table-dark">
-              <th scope="col">id</th>
-              <th scope="col">name</th>
-              <th scope="col">age</th>
-              <th scope="col">profession</th>
-              <th scope="col"></th>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Profession</th>
+              <th scope="col" className="m-0 pl-0" >Operations to be Performed</th>
             </tr>
           </thead>
           <tbody>
@@ -119,16 +121,16 @@ const Home = () => {
               return (
                 <>
                   <tr>
-                    <th scope="row">{id + 1}</th>
+                    <th scope="row">{id + 1}.</th>
                     <td>{element.name}</td>
                     <td>{element.age}</td>
                     <td>{element.profession}</td>
-                    <td className="d-flex p-1  justify-content-between ">
-                      <NavLink to={`view/${element._id}`}><button className="btn btn-success">
+                    <td className="d-flex pt-1 px-0 ml-0 mr-0 ">
+                      <NavLink to={`view/${element._id}`}><button className="btn btn-success mx-2">
                           <RemoveRedEyeIcon /> View</button></NavLink>
-                      <NavLink to={`edit/${element._id}`} ><button className="btn btn-primary">
+                      <NavLink to={`edit/${element._id}`} ><button className="btn btn-primary mx-2">
                           <CreateIcon /> Edit</button></NavLink>
-                       <button className="btn btn-danger" onClick={()=>deleteuser(element._id)} ><DeleteOutlineIcon /> Delete</button>
+                       <button className="btn btn-danger  mx-2 " onClick={()=>deleteuser(element._id)} ><DeleteOutlineIcon /> Delete</button>
                     </td>
                   </tr>
                 </>

@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
-import { NavLink, useNavigate, useParams,  } from "react-router-dom";
-import { updatedata } from "./context/ContextProvider"
+import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { updatedata } from "./context/ContextProvider";
 
 const Editform = () => {
   // const [getuserdata, setUserdata] = useState([]);
   // console.log(getuserdata);
-  const {updata,setUpdata} = useContext(updatedata)
+  const { updata, setUpdata } = useContext(updatedata);
 
-  const navigate = useNavigate("")
+  const navigate = useNavigate("");
 
   const [inpval, setINP] = useState({
     name: "",
@@ -30,8 +30,6 @@ const Editform = () => {
   // console.log(id);
 
   const getdata = async (e) => {
-   
-
     const res = await fetch(`/getuser/${id}`, {
       method: "GET",
       headers: {
@@ -56,30 +54,31 @@ const Editform = () => {
   const updateuser = async (e) => {
     e.preventDefault();
 
-    const {name,age,profession} = inpval
+    const { name, age, profession } = inpval;
 
     const res2 = await fetch(`/updateuser/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body:JSON.stringify({
-        name,age,profession
-      })
+      body: JSON.stringify({
+        name,
+        age,
+        profession,
+      }),
     });
 
-    const data2 = await res2.json()
+    const data2 = await res2.json();
     // console.log(data2);
 
-    if(res2.status === 42 || !data2){
-        alert("fill the data")
-    }else{
-        // alert("Data updated")
-        navigate('/')
-        setUpdata(data2)
+    if (res2.status === 42 || !data2) {
+      alert("fill the data");
+    } else {
+      // alert("Data updated")
+      navigate("/");
+      setUpdata(data2);
     }
-
-  }
+  };
 
   return (
     <div className="container">
@@ -127,17 +126,19 @@ const Editform = () => {
                 class="form-control"
                 id="exampleInputPassword1"
               />
-<div className="d-flex justify-content-between mt-3 ">
-<button type="submit" onClick={updateuser} class="btn btn-success">
-              Update
-            </button>
-            <NavLink to="/" className="btn btn-primary ">
-            Back
-          </NavLink>
-</div>
-
+              <div className="d-flex justify-content-between mt-3 ">
+                <button
+                  type="submit"
+                  onClick={updateuser}
+                  class="btn btn-success"
+                >
+                  Update
+                </button>
+                <NavLink to="/" className="btn btn-primary ">
+                  Back
+                </NavLink>
+              </div>
             </div>
-            
           </form>
         </div>
         <div className="col-2"></div>
