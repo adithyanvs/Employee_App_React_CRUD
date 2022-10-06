@@ -8,6 +8,7 @@ import { adddata, updatedata, deldata } from "./context/ContextProvider";
 // import { updatedata } from "./context/ContextProvider"
 // import{ deldata } from "./context/ContextProvider"
 
+
 const Home = () => {
   const [getuserdata, setUserdata] = useState([]);
   // console.log(getuserdata);

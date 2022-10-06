@@ -1,6 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { updatedata } from "./context/ContextProvider";
+import UpdateIcon from '@mui/icons-material/Update';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
 
 const Editform = () => {
   // const [getuserdata, setUserdata] = useState([]);
@@ -132,10 +135,10 @@ const Editform = () => {
                   onClick={updateuser}
                   class="btn btn-success"
                 >
-                  Update
+                  <UpdateIcon/> Update
                 </button>
                 <NavLink to="/" className="btn btn-primary ">
-                  Back
+                  <ArrowBackIcon/> Back
                 </NavLink>
               </div>
             </div>

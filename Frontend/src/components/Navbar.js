@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import EngineeringIcon from '@mui/icons-material/Engineering';
+import HomeIcon from '@mui/icons-material/Home';
 
 const Navbar = () => {
   return (
